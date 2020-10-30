@@ -14,4 +14,6 @@ df = df[(df['date'] == '2020-04-08')]
 
 
 r = df.merge(fips)
-r = r.iloc[:,2:-1]
+r = r.iloc[:,3:-1]
+
+r.to_csv('feature_data/mobility.csv')
