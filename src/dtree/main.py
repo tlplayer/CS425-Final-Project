@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 
 # read in master dataset
-df = pd.read_csv("../dataset.csv")
+df = pd.read_csv("../../dataset.csv")
 
 # get rid of first column
 df = df.iloc[:, 1:]
