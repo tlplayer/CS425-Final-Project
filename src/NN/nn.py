@@ -9,6 +9,7 @@ from sklearn.preprocessing import LabelBinarizer
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
+from keras.utils import to_categorical
 
 # (0) Hide as many warnings as possible!
 import os
@@ -24,8 +25,6 @@ df = pd.read_csv("dataset.csv")
 df = df.drop('fips', axis =1)
 df = df.drop('index', axis = 1)
 
-print(df.head(5))
-
 # (2) Create an encoder that "binarizes" target labels.
 # e.g. We have 3 target classes. When we instantiate and use fit_transform() on an 
 #      encoder, the function returns a N x 3 dataframe. Each row in this new dataframe 
@@ -38,7 +37,9 @@ target_df = pd.DataFrame(data=target)
 X_train,X_test,y_train,y_test = train_test_split(df.iloc[:,0:-1],
                                                  target_df,
                                                  test_size=0.30)
- 
+
+y_test = to_categorical(y_test) 
+y_train = to_categorical(y_train)  
  # (4) Perform standardization on our data.
 scaler = MinMaxScaler(feature_range=(0,1))
 X_train = pd.DataFrame(scaler.fit_transform(X_train),
@@ -57,8 +58,8 @@ def BaselineModel():
     """ A sequential Keras model that has an input layer, one 
         hidden layer, and an output layer."""
     model = Sequential()
-    model.add(Dense(4, input_dim=16, activation='sigmoid', name='layer_1'))
-    model.add(Dense(3, activation='sigmoid', name='output_layer'))
+    model.add(Dense(2, input_dim=16, activation='sigmoid', name='layer_1'))
+    model.add(Dense(2, activation='sigmoid', name='output_layer'))
      
     # Don't change this!
     model.compile(loss="categorical_crossentropy",
@@ -74,9 +75,9 @@ def AlternativeModel1():
     """ A sequential Keras model that has an input layer, two 
         hidden layers, and an output layer."""
     model = Sequential()
-    model.add(Dense(4, input_dim=16, activation='sigmoid', name='layer_1'))
-    model.add(Dense(4, activation='sigmoid', name='layer_2'))
-    model.add(Dense(3, activation='sigmoid', name='output_layer'))
+    model.add(Dense(2, input_dim=16, activation='sigmoid', name='layer_1'))
+    model.add(Dense(2, activation='sigmoid', name='layer_2'))
+    model.add(Dense(2, activation='sigmoid', name='output_layer'))
     
     # Don't change this!
     model.compile(loss="categorical_crossentropy",
@@ -91,11 +92,11 @@ def AlternativeModel2():
     """ A sequential Keras model that has an input layer, two 
         hidden layers, and an output layer."""
     model = Sequential()
-    model.add(Dense(4, input_dim=16, activation='sigmoid', name='layer_1'))
-    model.add(Dense(4, activation='tanh', name='layer_2'))
+    model.add(Dense(2, input_dim=16, activation='sigmoid', name='layer_1'))
+    model.add(Dense(2, activation='tanh', name='layer_2'))
     # model.add(Dense(10, activation='tanh', name='layer_3'))
     # model.add(Dense(10, activation='tanh', name='layer_4'))
-    model.add(Dense(3, activation='sigmoid', name='output_layer'))
+    model.add(Dense(2, activation='sigmoid', name='output_layer'))
     
     # Don't change this!
     model.compile(loss="categorical_crossentropy",
