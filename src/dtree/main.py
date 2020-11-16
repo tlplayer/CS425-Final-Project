@@ -1,6 +1,12 @@
+# This program creates a decision tree
+# based on dataset.csv and creates multiple
+# plots from it
+
+# UNCOMMENT plt.savefig LINES IF YOU WANT TO PLOT
+
 from sklearn import tree
 from sklearn.model_selection import StratifiedKFold
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -25,8 +31,8 @@ Y = df.iloc[:, -1:]
 #                          #
 ############################
 
-# X = X.drop(columns="cases")
-# X = X.drop(columns="deaths")
+X = X.drop(columns="cases")
+X = X.drop(columns="deaths")
 
 
 
@@ -42,6 +48,19 @@ for train, test in kf.split(X, Y):
     test_indices.append(test)
 
 # initialize variables to keep up with data
+classification_reports = {
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+    6: [],
+    7: [],
+    8: [],
+    9: [],
+    10: []
+}
+
 feature_importance = {
     1: [],
     2: [],
@@ -149,8 +168,11 @@ for i in range(len(train_indices)):
         total_tp[j+1] += row2[1]
         scores_by_depth[j+1].append(dt.score(x_test, y_test))
     
-        # note the feature importance of tree with max depth
+        # note the feature importance of tree
         feature_importance[j+1].append(dt.feature_importances_)
+
+        # get classification report
+        classification_reports[j+1].append(classification_report(y_test, y_pred, output_dict=True, zero_division=0))
 
 
 ############################
@@ -166,6 +188,8 @@ for val in scores_by_depth.values():
 
 # let's plot a bar graph to show accuracy by depth
 depth = [i+1 for i in range(10)]
+
+plt.figure(figsize=(12.7,6.2))
 plt.plot(depth, accuracy_by_depth)
 plt.xlabel("Max Depth")
 plt.ylabel("Accuracy")
@@ -173,8 +197,7 @@ if len(X.columns) < 17:
     plt.title("Accuracy By Max Depth Without Cases & Deaths")
 else:
     plt.title("Accuracy By Max Depth With Cases & Deaths")
-plt.show()
-plt.close()
+#plt.savefig("depth_accuracy_without_cases.png")
 
 
 # Now that we know which depth is best,
@@ -200,13 +223,14 @@ group_percentages = ["{0:.2%}".format(value) for value in
 labels = [f"{v1}\n{v2}\n{v3}" for v1, v2, v3 in
           zip(group_names,group_counts,group_percentages)]
 labels = np.asarray(labels).reshape(2,2)
+
+plt.figure(figsize=(12.7,6.2))
 sns.heatmap(cf_matrix, annot=labels, fmt='', cmap='Blues')
 if len(X.columns) < 17:
     plt.title("Average Confusion Matrix Without Cases & Deaths")
 else:
     plt.title("Average Confusion Matrix With Cases & Deaths")
-plt.show()
-plt.close()
+#plt.savefig("confusion_matrix_without_cases.png")
 
 
 
@@ -229,6 +253,7 @@ for i in range (len(features)):
 
 # show off the bar graph of feature importance
 plt.close()
+plt.figure(figsize=(12.7,6.2))
 plt.bar(features, avg_importance)
 plt.xlabel("Features")
 plt.ylabel("Importance")
@@ -237,4 +262,21 @@ if len(X.columns) < 17:
 else:
     plt.title("Feature Importance With Cases & Deaths")
 plt.xticks(rotation=30)
-plt.show()
+#plt.savefig("feature_importance_without_cases.png")
+
+############################
+#                          #
+#  Classification Report   #
+#                          #
+############################
+
+clf_report = classification_reports[best_depth][2]
+
+plt.figure(figsize=(12.7,6.2))
+sns.heatmap(pd.DataFrame(clf_report).iloc[:-1, :].T, annot=True, cmap='Blues')
+plt.yticks(rotation=0)
+if len(X.columns) < 17:
+    plt.title("Classification Report Without Cases & Deaths")
+else:
+    plt.title("Classification Report With Cases & Deaths")
+#plt.savefig("clf_report_without_cases.png")
