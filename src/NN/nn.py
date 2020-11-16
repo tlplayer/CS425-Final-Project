@@ -9,12 +9,14 @@ from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 from keras.utils import to_categorical
+import warnings
+import datetime
 
 # (0) Hide as many warnings as possible!
 import os
 import tensorflow as tf
 print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
-
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 tf.get_logger().setLevel('INFO')
@@ -49,53 +51,22 @@ X_test = pd.DataFrame(scaler.transform(X_test),
                            columns=X_test.columns,
                            index=X_test.index)
 
-
+#Parameters to test
+param_grid = [
+    {
+        'activation_func': ['linear', 'sigmoid', 'relu', 'tanh'], 
+        'neurons': [1, 5, 10, 15, 20, 25, 30]
+    }
+]
 # (5) Build Keras models.
-# # # # # # # # # # # # # # # # # 
-#   Model 1:   A Baseline Model #
-# # # # # # # # # # # # # # # # #
-def BaselineModel():
-    """ A sequential Keras model that has an input layer, one 
-        hidden layer, and an output layer."""
-    model = Sequential()
-    model.add(Dense(2, input_dim=16, activation='sigmoid', name='layer_1'))
-    model.add(Dense(2, activation='sigmoid', name='output_layer'))
-     
-    # Don't change this!
-    model.compile(loss="categorical_crossentropy",
-                  optimizer="adam",
-                  metrics=['accuracy'])
-    return model
-
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#   Model 2:   A Model with a Second Hidden Layer (sigmoid) #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-def AlternativeModel1():
-    """ A sequential Keras model that has an input layer, two 
-        hidden layers, and an output layer."""
-    model = Sequential()
-    model.add(Dense(2, input_dim=16, activation='sigmoid', name='layer_1'))
-    model.add(Dense(2, activation='sigmoid', name='layer_2'))
-    model.add(Dense(2, activation='sigmoid', name='output_layer'))
-    
-    # Don't change this!
-    model.compile(loss="categorical_crossentropy",
-                  optimizer="adam",
-                  metrics=['accuracy'])
-    return model
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#   Model 3:   A Model with a Second Hidden Layer (tanh)  #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-def AlternativeModel2():
+def Model():
     """ A sequential Keras model that has an input layer, two 
         hidden layers, and an output layer."""
     model = Sequential()
     model.add(Dense(2, input_dim=16, activation='sigmoid', name='layer_1'))
     model.add(Dense(2, activation='tanh', name='layer_2'))
-    # model.add(Dense(10, activation='tanh', name='layer_3'))
-    # model.add(Dense(10, activation='tanh', name='layer_4'))
+    model.add(Dense(10, activation='tanh', name='layer_3'))
+    model.add(Dense(10, activation='tanh', name='layer_4'))
     model.add(Dense(2, activation='sigmoid', name='output_layer'))
     
     # Don't change this!
@@ -108,35 +79,18 @@ def AlternativeModel2():
 # Below, we build KerasClassifiers using our model definitions. Use verbose=2 to see
 # real-time updates for each epoch.
 
-# - - Model 1 - - 
-estimator = KerasClassifier(
-        build_fn=BaselineModel,
-        epochs=200, batch_size=20,
-        verbose=0)
-kfold = KFold(n_splits=5, shuffle=True)
-print("- - - - - - - - - - - - - ")
-for i in range(0,10):
-    results = cross_val_score(estimator, X_train, y_train, cv=kfold)
-    print("(MODEL 1 : RUN " + str(i) +") Performance: mean: %.2f%% std: (%.2f%%)" % (results.mean()*100, results.std()*100))
+#This enables the tensorboard
+log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
 
-# - - Model 2 - - 
-estimator = KerasClassifier(
-        build_fn=AlternativeModel1,
-        epochs=200, batch_size=20,
-        verbose=0)
-kfold = KFold(n_splits=5, shuffle=True)
-print("- - - - - - - - - - - - - ")
-for i in range(0,10):
-    results = cross_val_score(estimator, X_train, y_train, cv=kfold)
-    print("(MODEL 2 : RUN " + str(i) +") Performance: mean: %.2f%% std: (%.2f%%)" % (results.mean()*100, results.std()*100))
+grid = GridSearchCV(estimator=model, param_grid=param_grid, n_jobs=-1, cv=3)
 
-# - - Model 3 - - 
 estimator = KerasClassifier(
-        build_fn=AlternativeModel2,
-        epochs=200, batch_size=20,
+        build_fn=Model,
+        epochs=200, batch_size=32,
         verbose=0)
 kfold = KFold(n_splits=5, shuffle=True)
+
 print("- - - - - - - - - - - - - ")
-for i in range(0,10):
-    results = cross_val_score(estimator, X_train, y_train, cv=kfold)
-    print("(MODEL 3 : RUN " + str(i) +") Performance: mean: %.2f%% std: (%.2f%%)" % (results.mean()*100, results.std()*100))
+results = cross_val_score(estimator, X_train, y_train, cv=kfold)
+print("(MODEL 3 : RUN " + str(0) +") Performance: mean: %.2f%% std: (%.2f%%)" % (results.mean()*100, results.std()*100))
