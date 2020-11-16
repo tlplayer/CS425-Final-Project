@@ -1,4 +1,3 @@
-from sklearn import datasets
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -14,6 +13,7 @@ from keras.utils import to_categorical
 # (0) Hide as many warnings as possible!
 import os
 import tensorflow as tf
+print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
