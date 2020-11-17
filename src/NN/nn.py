@@ -22,9 +22,8 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 tf.get_logger().setLevel('INFO')
-tf.compat.v1.disable_eager_execution()
 '''
-
+tf.compat.v1.disable_eager_execution()
 # (1) Read in the Iris dataset.
 df = pd.read_csv("dataset.csv")
 df = df.drop('fips', axis =1)
@@ -66,10 +65,11 @@ def NNModel(neurons = 25, input_dim = 16):
     """ A sequential Keras model that has an input layer, two 
         hidden layers, and an output layer."""
     model = tf.keras.models.Sequential([
-        tf.keras.layers.Dense(neurons,input_dim = 16, activation='tanh', name = 'layer_1'),
-        tf.keras.layers.Dense(neurons, activation='sigmoid', name='layer_2'),
-        tf.keras.layers.Dense(10, activation='tanh', name='layer_3'),
-        tf.keras.layers.Dense(2, activation='sigmoid', name='output_layer')
+        tf.keras.layers.Dense(neurons,input_dim = 16, activation='tanh', name = 'Tanh1'),
+        tf.keras.layers.Dense(neurons, activation='sigmoid', name='Sigmoid'),
+        #tf.keras.layers.Dense(10, activation='tanh', name='Tanh2'),
+        #tf.keras.layers.Dense(6,activation='relu',name = 'Relu'),
+        tf.keras.layers.Dense(2, activation='sigmoid', name='Output')
     ])
 
     '''
@@ -138,11 +138,12 @@ model.compile(loss="categorical_crossentropy",
                 metrics=['accuracy'])
 
 #This enables the tensorboard
-log_dir = "logs/"
+log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
 
-model.fit(x_train,y_train, epochs= 200,callbacks=tensorboard_callback)
+model.fit(x_train,y_train, epochs= 20,batch_size = 4,callbacks=tensorboard_callback)
 model.evaluate(x_test, y_test)
+model.summary()
 
 '''
 print("- - - - - - - - - - - - - ")
