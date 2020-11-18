@@ -1,0 +1,190 @@
+##########################################
+##       Best params for precision      ##
+##########################################
+  Score:  96.838
+  Params: {'C': 0.6, 'gamma': 0.06, 'kernel': 'rbf'}
+
+# All parameters tested:
+    95.213 (+/-0.105) for {'C': 1, 'kernel': 'linear'}
+    93.228 (+/-0.135) for {'C': 10, 'kernel': 'linear'}
+    94.872 (+/-0.151) for {'C': 100, 'kernel': 'linear'}
+    90.002 (+/-0.155) for {'C': 1000, 'kernel': 'linear'}
+    94.584 (+/-0.099) for {'C': 1, 'degree': 2, 'kernel': 'poly'}
+    94.705 (+/-0.100) for {'C': 1, 'degree': 3, 'kernel': 'poly'}
+    94.705 (+/-0.100) for {'C': 1, 'degree': 4, 'kernel': 'poly'}
+    95.587 (+/-0.077) for {'C': 10, 'degree': 2, 'kernel': 'poly'}
+    88.583 (+/-0.107) for {'C': 10, 'degree': 3, 'kernel': 'poly'}
+    86.894 (+/-0.187) for {'C': 10, 'degree': 4, 'kernel': 'poly'}
+    76.786 (+/-0.158) for {'C': 100, 'degree': 2, 'kernel': 'poly'}
+    79.380 (+/-0.065) for {'C': 100, 'degree': 3, 'kernel': 'poly'}
+    79.981 (+/-0.205) for {'C': 100, 'degree': 4, 'kernel': 'poly'}
+    66.847 (+/-0.056) for {'C': 1000, 'degree': 2, 'kernel': 'poly'}
+    69.674 (+/-0.091) for {'C': 1000, 'degree': 3, 'kernel': 'poly'}
+    74.524 (+/-0.242) for {'C': 1000, 'degree': 4, 'kernel': 'poly'}
+  * 96.714 (+/-0.008) for {'C': 1, 'gamma': 0.1, 'kernel': 'rbf'}
+    91.828 (+/-0.208) for {'C': 1, 'gamma': 0.01, 'kernel': 'rbf'}
+    55.867 (+/-0.402) for {'C': 1, 'gamma': 0.001, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 1, 'gamma': 0.0001, 'kernel': 'rbf'}
+    87.308 (+/-0.188) for {'C': 10, 'gamma': 0.1, 'kernel': 'rbf'}
+    93.998 (+/-0.140) for {'C': 10, 'gamma': 0.01, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 10, 'gamma': 0.001, 'kernel': 'rbf'}
+    55.867 (+/-0.402) for {'C': 10, 'gamma': 0.0001, 'kernel': 'rbf'}
+    82.456 (+/-0.165) for {'C': 100, 'gamma': 0.1, 'kernel': 'rbf'}
+    92.269 (+/-0.098) for {'C': 100, 'gamma': 0.01, 'kernel': 'rbf'}
+    94.957 (+/-0.102) for {'C': 100, 'gamma': 0.001, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 100, 'gamma': 0.0001, 'kernel': 'rbf'}
+    82.456 (+/-0.165) for {'C': 1000, 'gamma': 0.1, 'kernel': 'rbf'}
+    79.339 (+/-0.159) for {'C': 1000, 'gamma': 0.01, 'kernel': 'rbf'}
+    96.102 (+/-0.082) for {'C': 1000, 'gamma': 0.001, 'kernel': 'rbf'}
+    94.833 (+/-0.101) for {'C': 1000, 'gamma': 0.0001, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': 0.06, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': 0.08, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': 0.1, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': 0.14, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.19999999999999996, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.19999999999999996, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.19999999999999996, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.19999999999999996, 'gamma': 0.06, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.19999999999999996, 'gamma': 0.08, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.19999999999999996, 'gamma': 0.1, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.19999999999999996, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.19999999999999996, 'gamma': 0.14, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.19999999999999996, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.19999999999999996, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.3999999999999999, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    91.828 (+/-0.208) for {'C': 0.3999999999999999, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    91.582 (+/-0.205) for {'C': 0.3999999999999999, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+    76.107 (+/-0.495) for {'C': 0.3999999999999999, 'gamma': 0.06, 'kernel': 'rbf'}
+    55.871 (+/-0.408) for {'C': 0.3999999999999999, 'gamma': 0.08, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.3999999999999999, 'gamma': 0.1, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.3999999999999999, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.3999999999999999, 'gamma': 0.14, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.3999999999999999, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.3999999999999999, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.6, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    91.828 (+/-0.208) for {'C': 0.6, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 0.6, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+ ** 96.838 (+/-0.009) for {'C': 0.6, 'gamma': 0.06, 'kernel': 'rbf'}
+    96.347 (+/-0.006) for {'C': 0.6, 'gamma': 0.08, 'kernel': 'rbf'}
+    86.228 (+/-0.407) for {'C': 0.6, 'gamma': 0.1, 'kernel': 'rbf'}
+    55.871 (+/-0.408) for {'C': 0.6, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    55.871 (+/-0.408) for {'C': 0.6, 'gamma': 0.14, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.6, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    45.749 (+/-0.006) for {'C': 0.6, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.8, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    91.956 (+/-0.209) for {'C': 0.8, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 0.8, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+    93.496 (+/-0.135) for {'C': 0.8, 'gamma': 0.06, 'kernel': 'rbf'}
+    96.589 (+/-0.005) for {'C': 0.8, 'gamma': 0.08, 'kernel': 'rbf'}
+    96.468 (+/-0.006) for {'C': 0.8, 'gamma': 0.1, 'kernel': 'rbf'}
+    86.350 (+/-0.408) for {'C': 0.8, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    65.992 (+/-0.502) for {'C': 0.8, 'gamma': 0.14, 'kernel': 'rbf'}
+    65.992 (+/-0.502) for {'C': 0.8, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    65.992 (+/-0.502) for {'C': 0.8, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 1.0, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    93.745 (+/-0.138) for {'C': 1.0, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 1.0, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 1.0, 'gamma': 0.06, 'kernel': 'rbf'}
+    93.621 (+/-0.137) for {'C': 1.0, 'gamma': 0.08, 'kernel': 'rbf'}
+    96.714 (+/-0.008) for {'C': 1.0, 'gamma': 0.1, 'kernel': 'rbf'}
+    96.592 (+/-0.009) for {'C': 1.0, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    96.592 (+/-0.009) for {'C': 1.0, 'gamma': 0.14, 'kernel': 'rbf'}
+    76.356 (+/-0.504) for {'C': 1.0, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    76.110 (+/-0.500) for {'C': 1.0, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 1.2, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    93.745 (+/-0.138) for {'C': 1.2, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 1.2, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+    93.742 (+/-0.138) for {'C': 1.2, 'gamma': 0.06, 'kernel': 'rbf'}
+    93.621 (+/-0.137) for {'C': 1.2, 'gamma': 0.08, 'kernel': 'rbf'}
+    96.838 (+/-0.009) for {'C': 1.2, 'gamma': 0.1, 'kernel': 'rbf'}
+    96.592 (+/-0.009) for {'C': 1.2, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    96.592 (+/-0.009) for {'C': 1.2, 'gamma': 0.14, 'kernel': 'rbf'}
+    96.592 (+/-0.009) for {'C': 1.2, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    86.474 (+/-0.410) for {'C': 1.2, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 1.4, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    93.745 (+/-0.138) for {'C': 1.4, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 1.4, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+    93.742 (+/-0.138) for {'C': 1.4, 'gamma': 0.06, 'kernel': 'rbf'}
+    93.749 (+/-0.138) for {'C': 1.4, 'gamma': 0.08, 'kernel': 'rbf'}
+    93.496 (+/-0.135) for {'C': 1.4, 'gamma': 0.1, 'kernel': 'rbf'}
+    96.714 (+/-0.008) for {'C': 1.4, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    96.592 (+/-0.009) for {'C': 1.4, 'gamma': 0.14, 'kernel': 'rbf'}
+    96.592 (+/-0.009) for {'C': 1.4, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    81.464 (+/-0.412) for {'C': 1.4, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 1.6, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 1.6, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    93.742 (+/-0.138) for {'C': 1.6, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+    93.742 (+/-0.138) for {'C': 1.6, 'gamma': 0.06, 'kernel': 'rbf'}
+    93.749 (+/-0.138) for {'C': 1.6, 'gamma': 0.08, 'kernel': 'rbf'}
+    93.496 (+/-0.135) for {'C': 1.6, 'gamma': 0.1, 'kernel': 'rbf'}
+    96.714 (+/-0.008) for {'C': 1.6, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    96.592 (+/-0.009) for {'C': 1.6, 'gamma': 0.14, 'kernel': 'rbf'}
+    91.582 (+/-0.205) for {'C': 1.6, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    81.589 (+/-0.413) for {'C': 1.6, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 1.8, 'gamma': -1.3877787807814457e-17, 'kernel': 'rbf'}
+    93.618 (+/-0.136) for {'C': 1.8, 'gamma': 0.01999999999999999, 'kernel': 'rbf'}
+    93.742 (+/-0.138) for {'C': 1.8, 'gamma': 0.039999999999999994, 'kernel': 'rbf'}
+    93.742 (+/-0.138) for {'C': 1.8, 'gamma': 0.06, 'kernel': 'rbf'}
+    93.749 (+/-0.138) for {'C': 1.8, 'gamma': 0.08, 'kernel': 'rbf'}
+    93.621 (+/-0.137) for {'C': 1.8, 'gamma': 0.1, 'kernel': 'rbf'}
+    96.714 (+/-0.008) for {'C': 1.8, 'gamma': 0.12000000000000001, 'kernel': 'rbf'}
+    91.582 (+/-0.205) for {'C': 1.8, 'gamma': 0.14, 'kernel': 'rbf'}
+    91.707 (+/-0.207) for {'C': 1.8, 'gamma': 0.16000000000000003, 'kernel': 'rbf'}
+    91.707 (+/-0.207) for {'C': 1.8, 'gamma': 0.18000000000000002, 'kernel': 'rbf'}
+
+##########################################
+##       Best params for recall         ##
+##########################################
+  Score:  84.577
+  Params: {'C': 80.0, 'kernel': 'linear'}
+
+# All parameters tested:
+    74.383 (+/-0.094) for {'C': 1, 'kernel': 'linear'}
+    80.054 (+/-0.146) for {'C': 10, 'kernel': 'linear'}
+  * 84.577 (+/-0.085) for {'C': 100, 'kernel': 'linear'}
+    84.155 (+/-0.088) for {'C': 1000, 'kernel': 'linear'}
+    66.764 (+/-0.121) for {'C': 1, 'degree': 2, 'kernel': 'poly'}
+    68.192 (+/-0.083) for {'C': 1, 'degree': 3, 'kernel': 'poly'}
+    68.192 (+/-0.083) for {'C': 1, 'degree': 4, 'kernel': 'poly'}
+    72.716 (+/-0.094) for {'C': 10, 'degree': 2, 'kernel': 'poly'}
+    78.105 (+/-0.101) for {'C': 10, 'degree': 3, 'kernel': 'poly'}
+    73.203 (+/-0.086) for {'C': 10, 'degree': 4, 'kernel': 'poly'}
+    72.314 (+/-0.074) for {'C': 100, 'degree': 2, 'kernel': 'poly'}
+    75.594 (+/-0.090) for {'C': 100, 'degree': 3, 'kernel': 'poly'}
+    72.596 (+/-0.094) for {'C': 100, 'degree': 4, 'kernel': 'poly'}
+    69.098 (+/-0.096) for {'C': 1000, 'degree': 2, 'kernel': 'poly'}
+    73.903 (+/-0.159) for {'C': 1000, 'degree': 3, 'kernel': 'poly'}
+    70.084 (+/-0.103) for {'C': 1000, 'degree': 4, 'kernel': 'poly'}
+    62.143 (+/-0.074) for {'C': 1, 'gamma': 0.1, 'kernel': 'rbf'}
+    63.669 (+/-0.075) for {'C': 1, 'gamma': 0.01, 'kernel': 'rbf'}
+    51.429 (+/-0.057) for {'C': 1, 'gamma': 0.001, 'kernel': 'rbf'}
+    50.000 (+/-0.000) for {'C': 1, 'gamma': 0.0001, 'kernel': 'rbf'}
+    68.722 (+/-0.134) for {'C': 10, 'gamma': 0.1, 'kernel': 'rbf'}
+    69.859 (+/-0.100) for {'C': 10, 'gamma': 0.01, 'kernel': 'rbf'}
+    65.097 (+/-0.026) for {'C': 10, 'gamma': 0.001, 'kernel': 'rbf'}
+    51.429 (+/-0.057) for {'C': 10, 'gamma': 0.0001, 'kernel': 'rbf'}
+    68.300 (+/-0.125) for {'C': 100, 'gamma': 0.1, 'kernel': 'rbf'}
+    78.625 (+/-0.160) for {'C': 100, 'gamma': 0.01, 'kernel': 'rbf'}
+    71.288 (+/-0.078) for {'C': 100, 'gamma': 0.001, 'kernel': 'rbf'}
+    65.097 (+/-0.026) for {'C': 100, 'gamma': 0.0001, 'kernel': 'rbf'}
+    68.300 (+/-0.125) for {'C': 1000, 'gamma': 0.1, 'kernel': 'rbf'}
+    76.979 (+/-0.120) for {'C': 1000, 'gamma': 0.01, 'kernel': 'rbf'}
+    78.669 (+/-0.105) for {'C': 1000, 'gamma': 0.001, 'kernel': 'rbf'}
+    69.859 (+/-0.096) for {'C': 1000, 'gamma': 0.0001, 'kernel': 'rbf'}
+    nan (+/-nan) for {'C': 0.0, 'kernel': 'linear'}
+    81.482 (+/-0.146) for {'C': 20.0, 'kernel': 'linear'}
+    81.623 (+/-0.124) for {'C': 40.0, 'kernel': 'linear'}
+    82.911 (+/-0.115) for {'C': 60.0, 'kernel': 'linear'}
+ ** 84.577 (+/-0.085) for {'C': 80.0, 'kernel': 'linear'}
+    84.577 (+/-0.085) for {'C': 100.0, 'kernel': 'linear'}
+    84.577 (+/-0.085) for {'C': 120.0, 'kernel': 'linear'}
+    84.577 (+/-0.085) for {'C': 140.0, 'kernel': 'linear'}
+    84.577 (+/-0.085) for {'C': 160.0, 'kernel': 'linear'}
+    84.577 (+/-0.085) for {'C': 180.0, 'kernel': 'linear'}
+
