@@ -25,7 +25,7 @@ def get_fine_tuned_parameters(params, step = 0.2):
     val = params[key]
     tuned_params[key] = []
     step_val = step * val
-    for k in range(-5, 5):
+    for k in range(-4, 5):
       tuned_params[key].append(val + (step_val * k))
   return tuned_params
 
