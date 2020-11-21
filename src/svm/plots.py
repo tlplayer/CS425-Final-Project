@@ -90,6 +90,9 @@ coarse_grid_params = [
   ]
 ]
 
+# Make plots
+print('# Make plots')
+
 # Make giant plot with all coarse grid searches
 # create a mesh to plot in
 h=.02 # step size in the mesh
@@ -132,3 +135,38 @@ for j in range(len(coarse_grid_params)):
   pl.axis('tight')
   pl.tight_layout()
   pl.savefig('grid-search-{}.png'.format(j+1), transparent=True)
+
+# Make plot for best hyperparams
+print('## Make plots for best hyperparams')
+
+figures = [
+  {
+    'params': {'C': 0.6, 'gamma': 0.06, 'kernel': 'rbf'},
+    'title': 'Precision (Accuracy=0.9285)',
+    'fileName': 'precision.png'
+  },
+  {
+    'params': {'C': 80.0, 'kernel': 'linear'},
+    'title': 'Recall (Accuracy=0.9607)',
+    'fileName': 'recall.png'
+  }
+]
+
+for obj in figures:
+  pl.figure()
+  clf = svm.SVC(**obj['params']).fit(x_train, y_train_converted)
+
+  Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+
+  Z = Z.reshape(xx.shape)
+
+  pl.contourf(xx, yy, Z)
+  pl.axis('tight')
+
+  pl.scatter(X[pca_features[0]], X[pca_features[1]], c=Y.values, edgecolors='black')
+
+  pl.axis('tight')
+  pl.title(obj['title'])
+
+  pl.savefig(obj['fileName'], transparent=True)
+  print('### Made ' + obj['title'])
