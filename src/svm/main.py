@@ -114,7 +114,7 @@ for score in scores:
   print()
 
   y_true, y_pred = y_test, clf.predict(x_test)
-  print(classification_report(y_true, y_pred))
+  print(classification_report(y_true, y_pred, digits=4))
   print()
 
   print('# All parameters tested:')
