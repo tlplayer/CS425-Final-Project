@@ -4,6 +4,16 @@
   Score:  96.838
   Params: {'C': 0.6, 'gamma': 0.06, 'kernel': 'rbf'}
 
+              precision    recall  f1-score   support
+
+           0       0.93      1.00      0.96      1423
+           1       0.95      0.15      0.26       130
+
+    accuracy                           0.93      1553
+   macro avg       0.94      0.58      0.61      1553
+weighted avg       0.93      0.93      0.90      1553
+
+
 # All parameters tested:
     95.213 (+/-0.105) for {'C': 1, 'kernel': 'linear'}
     93.228 (+/-0.135) for {'C': 10, 'kernel': 'linear'}
@@ -143,6 +153,16 @@
 ##########################################
   Score:  84.577
   Params: {'C': 80.0, 'kernel': 'linear'}
+
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98      1423
+           1       0.92      0.58      0.71       130
+
+    accuracy                           0.96      1553
+   macro avg       0.94      0.79      0.85      1553
+weighted avg       0.96      0.96      0.96      1553
+
 
 # All parameters tested:
     74.383 (+/-0.094) for {'C': 1, 'kernel': 'linear'}

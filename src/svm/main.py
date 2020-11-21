@@ -113,6 +113,10 @@ for score in scores:
   print('  Params: {}'.format(clf.best_params_))
   print()
 
+  y_true, y_pred = y_test, clf.predict(x_test)
+  print(classification_report(y_true, y_pred))
+  print()
+
   print('# All parameters tested:')
   for test in tested_params:
     prefix = ''
